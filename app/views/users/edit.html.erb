@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit user #<%= @user.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_user/<%= @user.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for availability -->
+      <div class="form-group">
+        <label for="availability" class="control-label">
+          Availability
+        </label>
+
+        <textarea id="availability" name="availability" placeholder="Availability" class="form-control" rows="3"><%= @user.availability %></textarea>
+      </div>
+
+      <!-- Label and input for home_temperature -->
+      <div class="form-group">
+        <label for="home_temperature" class="control-label">
+          Home temperature
+        </label>
+
+        <input type="text" id="home_temperature" name="home_temperature" placeholder="Home temperature" class="form-control" value="<%= @user.home_temperature %>">
+      </div>
+
+      <!-- Label and input for fav_color -->
+      <div class="form-group">
+        <label for="fav_color" class="control-label">
+          Fav color
+        </label>
+
+        <textarea id="fav_color" name="fav_color" placeholder="Fav color" class="form-control" rows="3"><%= @user.fav_color %></textarea>
+      </div>
+
+      <button class="btn btn-warning">
+        Update user
+      </button>
+      or
+      <a href="/users/<%= @user.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

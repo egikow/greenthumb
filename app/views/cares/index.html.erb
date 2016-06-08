@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>
+    Cares
+    <a href="/cares/new" class="btn btn-lg btn-success">New Care</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Light</th>
+        <th>Temperature</th>
+        <th>Water</th>
+        <th>Image</th>
+        <th>Warning</th>
+        <th>Tip</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @cares.each do |care| %>
+      <tr>
+        <td><%= care.light %></td>
+        <td><%= care.temperature %></td>
+        <td><%= care.water %></td>
+        <td><%= care.image %></td>
+        <td><%= care.warning %></td>
+        <td><%= care.tip %></td>
+        <td>
+          <a href="/cares/<%= care.id %>" class="btn btn-primary">Show</a>
+          <a href="/cares/<%= care.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_care/<%= care.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

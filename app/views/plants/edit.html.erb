@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @plant.errors.any? %>
+  <% @plant.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Plant #<%= @plant.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_plant/<%= @plant.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <textarea id="name" name="name" placeholder="Name" class="form-control" rows="3"><%= @plant.name %></textarea>
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @plant.description %></textarea>
+      </div>
+
+      <!-- Label and input for tip -->
+      <div class="form-group">
+        <label for="tip" class="control-label">
+          Tip
+        </label>
+
+        <textarea id="tip" name="tip" placeholder="Tip" class="form-control" rows="3"><%= @plant.tip %></textarea>
+      </div>
+
+      <!-- Label and input for highlights -->
+      <div class="form-group">
+        <label for="highlights" class="control-label">
+          Highlights
+        </label>
+
+        <textarea id="highlights" name="highlights" placeholder="Highlights" class="form-control" rows="3"><%= @plant.highlights %></textarea>
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @plant.image %>">
+      </div>
+
+      <!-- Label and input for care_id -->
+      <div class="form-group">
+        <label for="care_id" class="control-label">
+          Care
+        </label>
+
+        <input type="text" id="care_id" name="care_id" placeholder="Care" class="form-control" value="<%= @plant.care_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Plant
+      </button>
+      or
+      <a href="/plants/<%= @plant.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

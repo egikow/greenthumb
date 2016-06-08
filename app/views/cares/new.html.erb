@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @care.errors.any? %>
+  <% @care.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Care</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_care" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for light -->
+      <div class="form-group">
+        <label for="light" class="control-label">
+          Light
+        </label>
+
+        <textarea id="light" name="light" placeholder="Light" class="form-control" rows="3"><%= @care.light %></textarea>
+      </div>
+
+      <!-- Label and input for temperature -->
+      <div class="form-group">
+        <label for="temperature" class="control-label">
+          Temperature
+        </label>
+
+        <textarea id="temperature" name="temperature" placeholder="Temperature" class="form-control" rows="3"><%= @care.temperature %></textarea>
+      </div>
+
+      <!-- Label and input for water -->
+      <div class="form-group">
+        <label for="water" class="control-label">
+          Water
+        </label>
+
+        <textarea id="water" name="water" placeholder="Water" class="form-control" rows="3"><%= @care.water %></textarea>
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @care.image %>">
+      </div>
+
+      <!-- Label and input for warning -->
+      <div class="form-group">
+        <label for="warning" class="control-label">
+          Warning
+        </label>
+
+        <textarea id="warning" name="warning" placeholder="Warning" class="form-control" rows="3"><%= @care.warning %></textarea>
+      </div>
+
+      <!-- Label and input for tip -->
+      <div class="form-group">
+        <label for="tip" class="control-label">
+          Tip
+        </label>
+
+        <textarea id="tip" name="tip" placeholder="Tip" class="form-control" rows="3"><%= @care.tip %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Care
+      </button>
+      or
+      <a href="/cares">Cancel</a>
+    </form>
+  </div>
+</div>

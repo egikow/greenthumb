@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @sill.errors.any? %>
+  <% @sill.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Sill #<%= @sill.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_sill/<%= @sill.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for light_type -->
+      <div class="form-group">
+        <label for="light_type" class="control-label">
+          Light type
+        </label>
+
+        <textarea id="light_type" name="light_type" placeholder="Light type" class="form-control" rows="3"><%= @sill.light_type %></textarea>
+      </div>
+
+      <!-- Label and input for home_temperature_id -->
+      <div class="form-group">
+        <label for="home_temperature_id" class="control-label">
+          Home temperature
+        </label>
+
+        <input type="text" id="home_temperature_id" name="home_temperature_id" placeholder="Home temperature" class="form-control" value="<%= @sill.home_temperature_id %>">
+      </div>
+
+      <!-- Label and input for height -->
+      <div class="form-group">
+        <label for="height" class="control-label">
+          Height
+        </label>
+
+        <input type="text" id="height" name="height" placeholder="Height" class="form-control" value="<%= @sill.height %>">
+      </div>
+
+      <!-- Label and input for width -->
+      <div class="form-group">
+        <label for="width" class="control-label">
+          Width
+        </label>
+
+        <input type="text" id="width" name="width" placeholder="Width" class="form-control" value="<%= @sill.width %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Sill
+      </button>
+      or
+      <a href="/sills/<%= @sill.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
