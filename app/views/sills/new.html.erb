@@ -20,7 +20,7 @@
 
       <!-- Label and input for light_type -->
       <div class="form-group">
-        <label for="light_type" class="control-label">
+        <label for="light" class="control-label">
           Light type
         </label>
 
@@ -40,10 +40,10 @@
       <!-- Label and input for temp_min -->
       <div class="form-group">
         <label for="temp_min" class="control-label">
-          Temper min
+          Temp min
         </label>
 
-        <input type="text" id="temp_min" name="temp_min" placeholder="Temp min" class="form-control" value="<%= @sill.temp_min %>">
+        <input type="integer" id="temp_min" name="temp_min" placeholder="Temp min" class="form-control" value="<%= @sill.temp_min %>">
         <%= select_tag(:temp_min, options_from_collection_for_select(Sills.all, :id, @sill.temp_min), :class => "form-control") %>
 
       </div>
@@ -54,7 +54,7 @@
           Temp max
         </label>
 
-        <input type="text" id="temp_max" name="temp_max" placeholder="Temp max" class="form-control" value="<%= @sill.temp_max %>">
+        <input type="integer" id="temp_max" name="temp_max" placeholder="Temp max" class="form-control" value="<%= @sill.temp_max %>">
         <%= select_tag(:temp_max, options_from_collection_for_select(Sills.all, :id, @sill.temp_max), :class => "form-control") %>
 
       </div>
@@ -65,7 +65,7 @@
           Space available for plant - Height
         </label>
 
-        <input type="text" id="height" name="height" placeholder="Height" class="form-control" value="<%= @sill.height %>">
+        <input type="integer" id="height" name="height" placeholder="Height" class="form-control" value="<%= @sill.height %>">
       </div>
 
       <!-- Label and input for width -->
@@ -74,7 +74,17 @@
           Space available for plant - Width
         </label>
 
-        <input type="text" id="width" name="width" placeholder="Width" class="form-control" value="<%= @sill.width %>">
+        <input type="integer" id="width" name="width" placeholder="Width" class="form-control" value="<%= @sill.width %>">
+      </div>
+
+      <!-- Label and input for plant suggestion -->
+      <div class="form-group">
+        <label for="plant" class="control-label">
+          Plant
+        </label>
+
+        <%= select_tag(:plant.name, options_from_collection_for_select(Plant.all, :id, @sill.plant_id), :class => "form-control") %>
+
       </div>
 
       <button class="btn btn-success">

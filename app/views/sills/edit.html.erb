@@ -33,7 +33,7 @@
           Temp Min
         </label>
 
-        <input type="text" id="temp_min" name="temp_min" placeholder="temp min" class="form-control" value="<%= @sill.temp_min %>">
+        <input type="integer" id="temp_min" name="temp_min" placeholder="temp min" class="form-control" value="<%= @sill.temp_min %>">
       </div>
 
       <!-- Label and input for temp max -->
@@ -42,7 +42,7 @@
           Temp Max
         </label>
 
-        <input type="text" id="temp_max" name="temp_max" placeholder="Temp max" class="form-control" value="<%= @sill.temp_max %>">
+        <input type="integer" id="temp_max" name="temp_max" placeholder="Temp max" class="form-control" value="<%= @sill.temp_max %>">
       </div>
 
       <!-- Label and input for height -->
@@ -51,7 +51,7 @@
           Height
         </label>
 
-        <input type="text" id="height" name="height" placeholder="Height" class="form-control" value="<%= @sill.height %>">
+        <input type="integer" id="height" name="height" placeholder="Height" class="form-control" value="<%= @sill.height %>">
       </div>
 
       <!-- Label and input for width -->
@@ -60,7 +60,7 @@
           Width
         </label>
 
-        <input type="text" id="width" name="width" placeholder="Width" class="form-control" value="<%= @sill.width %>">
+        <input type="integer" id="width" name="width" placeholder="Width" class="form-control" value="<%= @sill.width %>">
       </div>
 
       <button class="btn btn-warning">
