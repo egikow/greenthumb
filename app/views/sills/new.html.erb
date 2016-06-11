@@ -24,17 +24,38 @@
           Light type
         </label>
 
-        <textarea id="light_type" name="light_type" placeholder="Light type" class="form-control" rows="3"><%= @sill.light_type %></textarea>
+        <textarea id="light" name="light" placeholder="Light type" class="form-control" rows="3"><%= @sill.light %></textarea>
       </div>
 
-      <!-- Label and input for home_temperature_id -->
+      <!-- Label and input for light -->
       <div class="form-group">
-        <label for="home_temperature_id" class="control-label">
-          Temperature at this location
+        <label for="light" class="control-label">
+          Light
         </label>
 
-        <input type="text" id="home_temperature_id" name="home_temperature_id" placeholder="Home temperature" class="form-control" value="<%= @sill.home_temperature_id %>">
-        <%= select_tag(:home_temperature, options_from_collection_for_select(Profile.all, :id, @profile.home_temperature), :class => "form-control") %>
+        <input type="text" id="light" name="light" placeholder="Light" class="form-control" value="<%= @sill.light %>">
+        <%= select_tag(:light, options_from_collection_for_select(Sills.all, :id, @sill.light), :class => "form-control") %>
+
+      </div>
+      <!-- Label and input for temp_min -->
+      <div class="form-group">
+        <label for="temp_min" class="control-label">
+          Temper min
+        </label>
+
+        <input type="text" id="temp_min" name="temp_min" placeholder="Temp min" class="form-control" value="<%= @sill.temp_min %>">
+        <%= select_tag(:temp_min, options_from_collection_for_select(Sills.all, :id, @sill.temp_min), :class => "form-control") %>
+
+      </div>
+
+      <!-- Label and input for temp_max -->
+      <div class="form-group">
+        <label for="temp_max" class="control-label">
+          Temp max
+        </label>
+
+        <input type="text" id="temp_max" name="temp_max" placeholder="Temp max" class="form-control" value="<%= @sill.temp_max %>">
+        <%= select_tag(:temp_max, options_from_collection_for_select(Sills.all, :id, @sill.temp_max), :class => "form-control") %>
 
       </div>
 

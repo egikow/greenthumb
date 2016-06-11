@@ -27,13 +27,22 @@
         <textarea id="light_type" name="light_type" placeholder="Light type" class="form-control" rows="3"><%= @sill.light_type %></textarea>
       </div>
 
-      <!-- Label and input for home_temperature_id -->
+      <!-- Label and input for temp min -->
       <div class="form-group">
-        <label for="home_temperature_id" class="control-label">
-          Home temperature
+        <label for="Temp_min" class="control-label">
+          Temp Min
         </label>
 
-        <input type="text" id="home_temperature_id" name="home_temperature_id" placeholder="Home temperature" class="form-control" value="<%= @sill.home_temperature_id %>">
+        <input type="text" id="temp_min" name="temp_min" placeholder="temp min" class="form-control" value="<%= @sill.temp_min %>">
+      </div>
+
+      <!-- Label and input for temp max -->
+      <div class="form-group">
+        <label for="temp_max" class="control-label">
+          Temp Max
+        </label>
+
+        <input type="text" id="temp_max" name="temp_max" placeholder="Temp max" class="form-control" value="<%= @sill.temp_max %>">
       </div>
 
       <!-- Label and input for height -->
