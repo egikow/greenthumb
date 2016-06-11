@@ -38,7 +38,7 @@ class SillsController < ApplicationController
     @sill.light = params[:light]
     @sill.temp_min = params[:temp_min]
     @sill.temp_max = params[:temp_max]
-    @sill.height  params[:height
+    @sill.height  params[:height]
     @sill.width = params[:width]
     @sill.user_id = params[:user_id]
     @sill.plant_id = params[:plant_id]
