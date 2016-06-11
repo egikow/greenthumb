@@ -12,7 +12,7 @@
       <dd><%= @plant.description %></dd>
 
       <dt>Official Name</dt>
-      <dd><%= @plant.officialname %></dd>
+      <dd><%= @plant.official_name %></dd>
 
       <dt>Highlights</dt>
       <dd><%= @plant.highlights %></dd>
@@ -27,20 +27,10 @@
       <dd><img src="<%= @plant.id %>.jpg"></dd>
 
       <dt>Care ID</dt>
-      <dd><%= @plant.care_id %></dd>
+      <dd><a href="/cares/<%= @plant.care_id %>"><%= @plant.care_id %></dd>
 
       <!-- <dd><%= Care.where(:plant_id => @care.id) %></dd> -->
-
-      <dt>Sills</dt>
-      <% @plant.sills.each do |sill| %>
-        <dd>
-        <%= sill.plant.name %>
-        in
-        <%= sill.user_id.username %>'s home
-        </dd>
-      <% end %>
-
-        </dl>
+    </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/plants" class="btn btn-primary">

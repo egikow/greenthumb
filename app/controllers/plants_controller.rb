@@ -38,11 +38,10 @@ class PlantsController < ApplicationController
 
     @plant.name = params[:name]
     @plant.description = params[:description]
-    @plant.tip = params[:tip]
     @plant.highlights = params[:highlights]
-    @plant.officialname = params[:officialname]
-    @plant.care = params[:care]
-    @plant.warning = params[:warning]
+    @plant.official_name = params[:official_name]
+    @plant.height = params[:height]
+    @plant.width = params[:width]
     @plant.image = params[:image]
     @plant.care_id = params[:care_id]
 
