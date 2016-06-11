@@ -10,18 +10,19 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Light</th>
-        <th>Temperature</th>
+        <th>Temperature Minimum</th>
+        <th>Temperature Maximum</th>
         <th>Water</th>
         <th>Image</th>
         <th>Warning</th>
         <th>Tip</th>
-        <th>Actions</th>
       </tr>
 
       <% @cares.each do |care| %>
       <tr>
         <td><%= care.light %></td>
-        <td><%= care.temperature %></td>
+        <td><%= care.temp_min %></td>
+        <td><%= care.temp_max %></td>
         <td><%= care.water %></td>
         <td><%= care.image %></td>
         <td><%= care.warning %></td>

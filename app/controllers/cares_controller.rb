@@ -14,7 +14,8 @@ class CaresController < ApplicationController
   def create
     @care = Care.new
     @care.light = params[:light]
-    @care.temperature = params[:temperature]
+    @care.temp_min = params[:temp_min]
+    @care.temp_max = params[:temp_max]
     @care.water = params[:water]
     @care.image = params[:image]
     @care.warning = params[:warning]
@@ -35,7 +36,8 @@ class CaresController < ApplicationController
     @care = Care.find(params[:id])
 
     @care.light = params[:light]
-    @care.temperature = params[:temperature]
+    @care.temp_min = params[:temp_min]
+    @care.temp_max = params[:temp_max]
     @care.water = params[:water]
     @care.image = params[:image]
     @care.warning = params[:warning]

@@ -13,10 +13,13 @@ class SillsController < ApplicationController
 
   def create
     @sill = Sill.new
-    @sill.light_type = params[:light_type]
-    @sill.home_temperature_id = params[:home_temperature_id]
+    @sill.light = params[:light]
+    @sill.temp_min = params[:temp_min]
+    @sill.temp_max = params[:temp_max]
     @sill.height = params[:height]
     @sill.width = params[:width]
+    @sill.user_id = params[:user_id]
+    @sill.plant_id = params[:plant_id]
 
     if @sill.save
       redirect_to "/sills", :notice => "Sill created successfully."
@@ -32,10 +35,13 @@ class SillsController < ApplicationController
   def update
     @sill = Sill.find(params[:id])
 
-    @sill.light_type = params[:light_type]
-    @sill.home_temperature_id = params[:home_temperature_id]
-    @sill.height = params[:height]
+    @sill.light = params[:light]
+    @sill.temp_min = params[:temp_min]
+    @sill.temp_max = params[:temp_max]
+    @sill.height  params[:height
     @sill.width = params[:width]
+    @sill.user_id = params[:user_id]
+    @sill.plant_id = params[:plant_id]
 
     if @sill.save
       redirect_to "/sills", :notice => "Sill updated successfully."

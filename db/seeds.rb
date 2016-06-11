@@ -15,16 +15,38 @@ usernames.each do |username|
   user.email = "#{username}@example.com"
   user.password = "12341234"
   user.save
-
-  # require 'csv'
-  #
-  # csv_text = File.read(Rails.root.join('lib', 'seeds', 'greenthumbseed.csv'))
-  # csv = CSV.parse(csv_text, :headers => true, :encoding => 'iso-8859-1:UTF-8')
-  # csv.each do |row|
-  #   puts row.to_hash
-  # end
-
-  # CSV.foreach(file_path, :headers => true, :encoding => "iso-8859-1:UTF-8") do |row|
-  #   puts row
-  # end
 end
+
+require 'csv'
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'greenthumbseed_plant_table.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Plant.new
+  t.name = row['name']
+  t.description = row['description']
+  t.official_name = row['official_name']
+  t.height = row['height']
+  t.width = row['width']
+  t.warning = row['warning']
+  t.save
+  puts "#{@plant.name}, #{@plant.official_name} saved"
+end
+
+puts "There are now #{Plant.count} rows in the household plants table"
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'greenthumbseed_careinstructions.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Care.new
+  t.name = row['name']
+  t.tip = row['tip']
+  t.light = row['light']
+  t.temp_min = row['temp_min']
+  t.temp_max = row['temp_max']
+  t.warning = row['warning']
+  t.save
+  puts "#{@care.name} saved"
+end
+
+puts "There are now #{Care.count} rows in the household care instructionss table"

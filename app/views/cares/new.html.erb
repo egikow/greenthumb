@@ -27,13 +27,22 @@
         <textarea id="light" name="light" placeholder="Light" class="form-control" rows="3"><%= @care.light %></textarea>
       </div>
 
-      <!-- Label and input for temperature -->
+      <!-- Label and input for temp min -->
       <div class="form-group">
-        <label for="temperature" class="control-label">
-          Temperature
+        <label for="temp_min" class="control-label">
+          Temp Min
         </label>
 
-        <textarea id="temperature" name="temperature" placeholder="Temperature" class="form-control" rows="3"><%= @care.temperature %></textarea>
+        <textarea id="temp_min" name="temp_min" placeholder="Temp Min" class="form-control" rows="3"><%= @care.temp_min %></textarea>
+      </div>
+
+      <!-- Label and input for temp max -->
+      <div class="form-group">
+        <label for="temp_max" class="control-label">
+          Temp Max
+        </label>
+
+        <textarea id="temp_max" name="temp_max" placeholder="Temp Max" class="form-control" rows="3"><%= @care.temp_max %></textarea>
       </div>
 
       <!-- Label and input for water -->

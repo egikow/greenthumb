@@ -14,12 +14,13 @@
 ActiveRecord::Schema.define(version: 20160607025348) do
 
   create_table "cares", force: :cascade do |t|
-    t.text     "light"
-    t.text     "temperature"
-    t.text     "water"
-    t.string   "image"
-    t.text     "warning"
+    t.integer "plant_id"
     t.text     "tip"
+    t.text     "light"
+    t.integer    "temp_min"
+    t.integer "temp_max"
+    t.text     "water"
+    t.text     "warning"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,29 +28,27 @@ ActiveRecord::Schema.define(version: 20160607025348) do
   create_table "plants", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
-    t.text     "tip"
+    t.text     "official_name"
     t.text     "highlights"
-    t.string   "image"
+    t.integer  "height"
+    t.integer   "width"
     t.integer  "care_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.text     "availability"
-    t.integer  "home_temperature"
-    t.text     "fav_color"
+    t.string  "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sills", force: :cascade do |t|
-    t.text     "light_type"
-    t.integer  "home_temperature_id"
+    t.integer "user_id"
+    t.integer "plant_id"
+    t.text     "light"
+    t.integer  "temp_min"
+    t.integer  "temp_max"
     t.integer  "height"
     t.integer  "width"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer   "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,5 +69,6 @@ ActiveRecord::Schema.define(version: 20160607025348) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
 
 end

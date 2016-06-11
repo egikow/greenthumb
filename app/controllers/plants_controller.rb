@@ -15,8 +15,10 @@ class PlantsController < ApplicationController
     @plant = Plant.new
     @plant.name = params[:name]
     @plant.description = params[:description]
-    @plant.tip = params[:tip]
     @plant.highlights = params[:highlights]
+    @plant.official_name = params[:official_name]
+    @plant.height = params[:height]
+    @plant.width = params[:width]
     @plant.image = params[:image]
     @plant.care_id = params[:care_id]
 
@@ -38,6 +40,9 @@ class PlantsController < ApplicationController
     @plant.description = params[:description]
     @plant.tip = params[:tip]
     @plant.highlights = params[:highlights]
+    @plant.officialname = params[:officialname]
+    @plant.care = params[:care]
+    @plant.warning = params[:warning]
     @plant.image = params[:image]
     @plant.care_id = params[:care_id]
 
