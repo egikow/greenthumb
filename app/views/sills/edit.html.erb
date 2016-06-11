@@ -20,11 +20,11 @@
 
       <!-- Label and input for light_type -->
       <div class="form-group">
-        <label for="light_type" class="control-label">
-          Light type
+        <label for="light" class="control-label">
+          Light
         </label>
 
-        <textarea id="light_type" name="light_type" placeholder="Light type" class="form-control" rows="3"><%= @sill.light_type %></textarea>
+        <textarea id="light" name="light" placeholder="Light" class="form-control" rows="3"><%= @sill.light %></textarea>
       </div>
 
       <!-- Label and input for temp min -->
@@ -61,6 +61,16 @@
         </label>
 
         <input type="integer" id="width" name="width" placeholder="Width" class="form-control" value="<%= @sill.width %>">
+      </div>
+
+      <!-- Label and input for plant edit -->
+      <div class="form-group">
+        <label for="plant" class="control-label">
+          Plant
+        </label>
+
+        <%= select_tag(:plant.name, options_from_collection_for_select(Plant.all, :id, @sill.plant_id), :class => "form-control") %>
+
       </div>
 
       <button class="btn btn-warning">

@@ -29,7 +29,18 @@
       <dt>Care ID</dt>
       <dd><%= @plant.care_id %></dd>
 
-    </dl>
+      <!-- <dd><%= Care.where(:plant_id => @care.id) %></dd> -->
+
+      <dt>Sills</dt>
+      <% @plant.sills.each do |sill| %>
+        <dd>
+        <%= sill.plant.name %>
+        in
+        <%= sill.user_id.username %>'s home
+        </dd>
+      <% end %>
+
+        </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/plants" class="btn btn-primary">

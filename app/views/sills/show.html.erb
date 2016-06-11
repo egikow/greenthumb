@@ -6,10 +6,13 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>Light type</dt>
-      <dd><%= @sill.light_type %></dd>
+      <dd><%= @sill.light %></dd>
 
-      <dt>Home temperature</dt>
-      <dd><%= @sill.home_temperature_id %></dd>
+      <dt>Temp Min</dt>
+      <dd><%= @sill.temp_min %></dd>
+
+      <dt>Temp Max</dt>
+      <dd><%= @sill.temp_max %></dd>
 
       <dt>Height</dt>
       <dd><%= @sill.height %></dd>
@@ -17,17 +20,33 @@
       <dt>Width</dt>
       <dd><%= @sill.width %></dd>
 
+      <dt>Plant</dt>
+      <dd><%= @sill.plant_id %> <%= @sill.plant_id.name %></dd>
+
     </dl>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+
+        <div class="btn-group btn-group-justified">
+          <a href="/sills" class="btn btn-primary">
+            <i class="fa fa-chevron-left"></i>
+          </a>
+          <% if current_user.id == @sill.user_id %>
+            <a href="/sills/<%= @sill.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_photo/<%= @sill.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
     <div class="btn-group btn-group-justified">
       <a href="/sills" class="btn btn-primary">
         Back
-      </a>
-      <a href="/sills/<%= @sill.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_sill/<%= @sill.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
       </a>
     </div>
   </div>
